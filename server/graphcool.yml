@@ -1,0 +1,40 @@
+# Welcome to Graphcool!
+#
+# This is where we will store and document the graphql schema.  Graphql
+# is an open standard and this schema can be hosted by a number of 
+# different graphql providers, including ourselves if we choose to do 
+# so.  For the first few iterations, we'll use graphcool as a gql 
+# provider.  In the future we may elect to host gql ourselves for 
+# better connectivity with our markets and possibly for better control
+# of our data if this is deemed necessary.
+#
+# 12/15/2017 - Sean Langford
+
+
+# In the types.graphql you define your data schema
+types: ./types.graphql
+
+
+functions:
+  hello:
+    handler:
+      code: src/hello.js
+    type: resolver
+    schema: src/hello.graphql
+
+
+# Model/Relation permissions are used to limit the API access
+# To take the burden of thinking about those while development, we
+# preconfigured the wildcard ("*") permission that allows everything
+# Read more here:
+# https://www.graph.cool/docs/reference/auth/authorization/overview-iegoo0heez
+permissions:
+  - operation: "*"
+
+
+# Root tokens used for functions to get full access to the API
+# Read more here:
+# https://www.graph.cool/docs/reference/auth/authentication/authentication-tokens-eip7ahqu5o
+# rootTokens:
+#   - mytoken
+
